@@ -3,6 +3,7 @@
 	include('database/connection.php');
 	include('database/donnees.php');
 	if(isset($_GET['pageRedirect']))$pageRedirect=$_GET['pageRedirect'].".php";
+	$url="http://localhost/Miniprojet%20-%20Web%20design/";
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -34,21 +35,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/bootstrap.css">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/flexslider.css">
 	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/owl.theme.default.min.css">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/style.css">
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="<?php echo $url ?>FrontOffice/js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -62,13 +63,13 @@
 	<header id="fh5co-header" role="banner">
 		<div class="container">
 			<div class="header-inner">
-				<h1><a href="index.html">Iceberg</a></h1>
+				<h1><a href="<?php echo $url?>accueil">Iceberg</a></h1>
 				<nav role="navigation">
 					<ul>
-						<li><a href="index.html">Accueil</a></li>
-						<li><a href="actualite.html">Actualité</a></li>
-						<li><a href="contact.html">Contact</a></li>
-						<li class="cta"><a href="payement.html">Donnez de l'argent</a></li>
+						<li><a href="<?php echo $url?>accueil">Accueil</a></li>
+						<li><a href="<?php echo $url?>accueil/actualite">Actualité</a></li>
+						<li><a href="<?php echo $url?>accueil/contact-us">Contact</a></li>
+						<li class="cta"><a href="<?php echo $url?>accueil/donnez-de-l-argent">Donnez de l'argent</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -81,17 +82,17 @@
 	<aside id="fh5co-hero" class="js-fullheight">
 		<div class="flexslider js-fullheight">
 			<ul class="slides">
-		   	<li style="background-image: url(images/slide_1.jpg);">
+		   	<li style="background-image: url(<?php echo $url ?>images/slide_1.jpg);">
 		   		<div class="overlay-gradient"></div>
 		   		<div class="container">
 		   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
 		   				<div class="slider-text-inner">
-		   					<h2 style="color: black;">Vous voulez aider les Ours polaires et les Pingoins?</h2>
+		   					<h2 >Vous voulez aider les Ours polaires et les Pingoins?</h2>
 		   				</div>
 		   			</div>
 		   		</div>
 		   	</li>
-		   	<li style="background-image: url(images/slide_2.jpg);">
+		   	<li style="background-image: url(<?php echo $url ?>images/slide_2.jpg);">
 		   		<div class="container">
 		   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
 		   				<div class="slider-text-inner">
@@ -100,12 +101,12 @@
 		   			</div>
 		   		</div>
 		   	</li>
-		   	<li style="background-image: url(images/slide_3.jpg);">
+		   	<li style="background-image: url(<?php echo $url ?>images/slide_3.jpg);">
 		   		<div class="container">
 		   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
 		   				<div class="slider-text-inner">
 		   					<h2>Aidez-nous à le faire pour vous, suivez-nous</h2>
-		   					<p><a href="payement.html" class="btn btn-primary btn-lg">Donnez de l'argent</a></p>
+		   					<p><a href="<?php echo $url?>accueil/donnez-de-l-argent" class="btn btn-primary btn-lg">Donnez de l'argent</a></p>
 		   				</div>
 		   			</div>
 		   		</div>
@@ -117,12 +118,12 @@
     	if(isset($_GET['pageRedirect'])) include($pageRedirect);
     	else include('accueil.php');
 	?>
-	<div class="fh5co-cta" style="background-image: url(images/slide_2.jpg);">
+	<div class="fh5co-cta" style="background-image: url(<?php echo $url ?>images/slide_2.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="col-md-12 text-center animate-box">
 				<h3>Ensemble aidons les ours polaires</h3>
-				<p><a href="payement.html" class="btn btn-primary btn-outline with-arrow">Donnez de l'argent ! <i class="icon-arrow-right"></i></a></p>
+				<p><a href="<?php echo $url?>accueil/donnez-de-l-argent" class="btn btn-primary btn-outline with-arrow">Donnez de l'argent ! <i class="icon-arrow-right"></i></a></p>
 			</div>
 		</div>
 	</div>
@@ -170,20 +171,20 @@
 	
 	
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+	<script src="<?php echo $url ?>FrontOffice/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="<?php echo $url ?>FrontOffice/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="<?php echo $url ?>FrontOffice/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="<?php echo $url ?>FrontOffice/js/jquery.waypoints.min.js"></script>
 	<!-- Owl Carousel -->
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="<?php echo $url ?>FrontOffice/js/owl.carousel.min.js"></script>
 	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
+	<script src="<?php echo $url ?>FrontOffice/js/jquery.flexslider-min.js"></script>
 
 	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+	<script src="<?php echo $url ?>FrontOffice/js/main.js"></script>
 
 	</body>
 </html>
