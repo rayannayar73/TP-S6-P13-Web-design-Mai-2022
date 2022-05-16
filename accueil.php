@@ -48,41 +48,21 @@
 				</div>
 			</div>
 			<div class="row">
+                <?php foreach($liste['blog']as $blog){ ?>
 				<div class="col-md-4 animate-box">
-					<a href="#" class="item-grid text-center">
-						<div class="image" style="background-image: url(images/image_4.jpg)"></div>
+					<a href="<?php echo $url."accueil/blog/".slugify($blog['titre'])."-".$blog['id']?>" class="item-grid text-center">
+						<div class="image" style="background-image: url(<?php echo $url ?>images/incidents/paysage.jpg)"></div>
 						<div class="v-align">
 							<div class="v-align-middle">
-								<h3 class="title">Geographical App</h3>
-								<h5 class="category">Web</h5>
+								<h3 class="title"><?php echo $blog['titre']?></h3>
+								<h5 class="description"><?php echo $blog['description']?></h5>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-md-4 animate-box">
-					<a href="#" class="item-grid text-center">
-						<div class="image" style="background-image: url(images/image_5.jpg)"></div>
-						<div class="v-align">
-							<div class="v-align-middle">
-								<h3 class="title">Geographical App</h3>
-								<h5 class="category">Illustration</h5>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 animate-box">
-					<a href="#" class="item-grid text-center">
-						<div class="image" style="background-image: url(images/image_6.jpg)"></div>
-						<div class="v-align">
-							<div class="v-align-middle">
-								<h3 class="title">Geographical App</h3>
-								<h5 class="category">Web Application</h5>
-							</div>
-						</div>
-					</a>
-				</div>
+                <?php }?>
 				<div class="col-md-12 text-center animate-box">
-					<p><a href="#" class="btn btn-primary with-arrow">Voir tous les actualités <i class="icon-arrow-right"></i></a></p>
+					<p><a href="<?php echo $url ?>accueil/actualite" class="btn btn-primary with-arrow">Voir tous les actualités <i class="icon-arrow-right"></i></a></p>
 				</div>
 			</div>
 		</div>
