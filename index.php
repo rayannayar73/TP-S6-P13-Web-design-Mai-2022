@@ -1,4 +1,7 @@
 <?php 
+	include('database/fonctions.php');
+	include('database/connection.php');
+	include('database/donnees.php');
 	if(isset($_GET['pageRedirect']))$pageRedirect=$_GET['pageRedirect'].".php";
 ?>
 <!DOCTYPE html>
@@ -83,7 +86,7 @@
 		   		<div class="container">
 		   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
 		   				<div class="slider-text-inner">
-		   					<h2>Vous voulez aider les Ours polaires et les Pingoins?</h2>
+		   					<h2 style="color: black;">Vous voulez aider les Ours polaires et les Pingoins?</h2>
 		   				</div>
 		   			</div>
 		   		</div>
