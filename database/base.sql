@@ -16,12 +16,6 @@ insert into blog (titre, description,lieu, dateIncident, altImage, urlImage) val
 ("Ours polaires en detresse","Des ours ne trouvent plus d'abris","Antarctique",now(),"Des ours sur des partiels d'iceberg","images/incidents/"),
 ("pingouins polaires en detresse","Des pingouins ne trouvent plus d'abris","Antarctique",now(),"Des pingouins sur des partiels d'iceberg","images/incidents/");
 
-create table (
-    id int not null primary key auto_increment,
-    idBlog int,
-    foreign key(idBlog) REFERENCES blog(id)
-);
-
 create table admin(
     id int not null primary key auto_increment,
     nom varchar(100),

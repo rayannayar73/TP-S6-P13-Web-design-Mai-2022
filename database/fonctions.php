@@ -1,35 +1,95 @@
 <?php
-    function select($critere,$valeur){
-        $Requete="SELECT * from blog where ".$critere."='".$valeur."'";
-        $Requetequery=mysqli_query(dbconnect(),$Requete);
-        $RequeteAssoc=mysqli_fetch_assoc($Requetequery);
-        $result=$RequeteAssoc[$valiny];
-        mysqli_free_result($Requetequery);
-        return $result;
+function compressImage($source, $destination, $quality)
+{
+    $imgInfo = getimagesize($source);
+    $mime = $imgInfo['mime'];
+    switch ($mime) {
+        case 'img/jpeg':
+            $image = imagecreatefromjpeg($source);
+            imagejpeg($image, $destination, $quality);
+            break;
+        case 'img/png':
+            $image = imagecreatefrompng($source);
+            imagepng($image, $destination, $quality);
+            break;
+        case 'image/gif':
+            $image = imagecreatefromgif($source);
+            imagegif($image, $destination, $quality);
+            break;
+        default:
+            $image = imagecreatefromjpeg($source);
+            imagejpeg($image, $destination, $quality);
     }
-    function inserer($args){
-        $reqInsertion="INSERT INTO blog values($args)";
-        $valiny=mysqli_query(dbconnect(),$reqInsertion);
+    return $destination;
+}
+
+function insertPost($titre, $description, $lieu, $date, $alt, $url)
+{
+    $bdd = dbconnect();
+    $url = slugify($titre, '-');
+    $date = date_create('now', new DateTimeZone('Africa/Nairobi'));
+    $req = "INSERT INTO blog(titre, description, lieu, dateIncident, altImage, urlImage) VALUES ('%s', %s, '%s', '%s', '%s', '%s')";
+    $req = sprintf($req, $bdd->escape_string($titre), $bdd->escape_string($description), $lieu, date_format($date, "Y-m-d H:i:s"), $alIimage, $urlImage);
+    mysqli_query($bdd, $req);
+}
+
+function supprimerBlog($id){
+    $bdd = dbconnect();
+    $req = "Delete from blog where id=%s";
+    $req = sprintf($req, $id);
+    mysqli_query($bdd, $req);
+}
+
+function tableToArray($req)
+{
+    $bdd = dbconnect();
+    $retour = array();
+    $i = 0;
+    $result = mysqli_query($bdd, $req);
+    if($result){
+        while ($donnees = mysqli_fetch_assoc($result)) {
+            $retour[$i] = $donnees;
+            $i++;
+        }
+        mysqli_free_result($result);
+        return $retour;
     }
-    function supprimer($critere,$args){
-        $reqSuppression="DELETE FROM blog WHERE $critere='$args' ";
-        $valiny=mysqli_query(dbconnect(),$reqSuppression);
+    else{
+        return false;
+    }    
+}
+function getUser($login, $mdp){
+    $req = "select * from admin where mail='%s' and mdp=sha1('%s')";
+    $req = sprintf($req, $login, $mdp);
+    return tableToArray($req);
+}
+
+function getListe()
+{
+    $req = "Select * from blog";
+    $blog =  tableToArray($req);
+    return array(
+        'blog' => $blog,
+    );
+}
+
+function getBlog($id)
+{
+    $req = "select * from blog where id = '%s'";
+    $req = sprintf($req, $id);
+    return tableToArray($req)[0];
+}
+
+function slugify($text, $divider = '-')
+{
+    $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+    $text = preg_replace('~[^-\w]+~', '', $text);
+    $text = trim($text, $divider);
+    $text = preg_replace('~-+~', $divider, $text);
+    $text = strtolower($text);
+    if (empty($text)) {
+        return 'n-a';
     }
-    function modifier($valeurs,$critere,$nom){
-        $reqModification="UPDATE blog SET $valeurs WHERE $critere='$nom' ";
-        $valiny=mysqli_query(dbconnect(),$reqModification);
-    }
-    function get($requ,$ind)
-    {
-        $resRequ = mysqli_query(dbconnect(), $requ );
-        $result = array();
-        $j=0;
-        while ($valiny = mysqli_fetch_assoc($resRequ)) {
-                $result[$j] = $valiny[$ind];
-                $j++;
-            }
-        mysqli_free_result($resRequ);
-        return $result;
-    }
-    
-?>
+    return $text;
+}

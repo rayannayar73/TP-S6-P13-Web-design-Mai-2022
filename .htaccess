@@ -1,0 +1,11 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteRule ^admin$ login.php [L]
+RewriteRule ^admin/login$ admin.php [L]
+
+RewriteRule ^accueil$ index.php [L]
+RewriteRule ^accueil/actualite$   index.php?pageRedirect=actualite [L]
+RewriteRule ^accueil/contact-us$   index.php?pageRedirect=contact [L]
+RewriteRule ^accueil/donnez-de-l-argent$   index.php?pageRedirect=payement [L]
+RewriteRule ^accueil/blog/(/?.*)-(/?.*)$   index.php?pageRedirect=detail-actualite&blog=$2
