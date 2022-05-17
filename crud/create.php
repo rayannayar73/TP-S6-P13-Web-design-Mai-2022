@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="mt-5">Création de nouvelle blog</h2>
-                    <form action="image.php" method="post">
+                    <form action="image.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Titre</label>
                             <input type="text" name="titre" class="form-control ">

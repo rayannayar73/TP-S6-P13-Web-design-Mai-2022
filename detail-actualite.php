@@ -7,7 +7,7 @@
 		<div class="container">
 			<div class="col-md-6 animate-box">
 				<figure>
-					<img src="<?php echo $url ?>images/about-img.jpg" alt="Free HTML5 Template" class="img-responsive">
+					<img src="<?php echo $url.$oneBlog['urlImage'] ?>" alt="<?php echo $oneBlog['altImage'] ?>" class="img-responsive">
 				</figure>
 			</div>
 			<div class="col-md-4  animate-box">

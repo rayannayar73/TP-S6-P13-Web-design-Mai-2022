@@ -3,8 +3,8 @@
 	include('database/connection.php');
 	include('database/donnees.php');
 	if(isset($_GET['pageRedirect']))$pageRedirect=$_GET['pageRedirect'].".php";
-	$url="http://localhost/Miniprojet%20-%20Web%20design/";
-?>
+	$url="https://rayannayar.alwaysdata.net/Iceberg-sauvez-la-planete/";
+	?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -16,7 +16,7 @@
 	<title>Iceberg - Sauvez la planète contre le réchauffement climatique</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Site de don et de collecte de fond. Pour aider les animaux et les populations dans les antarctiques contre les dégats causés par le réchauffement climatique dans le monde" />
-	<meta name="keywords" content="iceberg, grand blanc, ours polaire, pingoins, orques, baleine blanche, climat, réchauffement climat, antarctiques, température, sauver, don, collecte de fond" />
+	<meta name="keywords" content="iceberg, grand blanc, ours polaire, pingouins, orques, baleine blanche, climat, réchauffement climat, antarctiques, température, sauver, don, collecte de fond" />
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>

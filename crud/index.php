@@ -3,6 +3,7 @@
  include("../database/fonctions.php");
  include("../database/donnees.php");
  require('security.php');
+ $url="https://rayannayar.alwaysdata.net/Iceberg-sauvez-la-planete/";
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,14 +52,24 @@
                         <tbody>
                         <?php foreach($liste['blog']as $blog){ ?>
                             <tr>
-                                <td><?php echo $blog['titre']?></td>
-                                <td><?php echo $blog['titre']?></td>
-                                <td><?php echo $blog['description']?></td>
+                                <td><img src="<?php echo $url.$blog['urlImage'] ?>" width="150px" alt="<?php echo $blog['altImage'] ?>" class="img-responsive"></td>
+                                <td><p style="max-height: 100px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;">
+                                        <?php echo $blog['titre']?>
+                                    </p>
+                                </td>
+                                <td><p style="max-height: 100px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;">
+                                        <?php echo $blog['description']?>
+                                    </p>
+                                </td>
                                 <td><?php echo $blog['lieu']?></td>
                                 <td><?php echo $blog['dateIncident']?></td>
                                 <td>
-                                    <a href="update.php?id=<?php echo $blog['id']?>" class="mr-3" title="Modifier" data-toggle="tooltip"><span class="fa fa-pencil">modifier</span></a>
-                                    <a href="delete.php?id=<?php echo $blog['id']?>" title="Supprimer" data-toggle="tooltip"><span class="fa fa-trash">supprimer</span></a>
+                                    <a href="update.php?id=<?php echo $blog['id']?>" class="mr-3" title="Modifier" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>
+                                    <a href="delete.php?id=<?php echo $blog['id']?>" title="Supprimer" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
                                 </td>
                             </tr>
                         <?php }?>

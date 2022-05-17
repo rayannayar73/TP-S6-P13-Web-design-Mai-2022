@@ -1,5 +1,6 @@
 <?php 
     $liste=getListe();
+    $listeAccueil=getListe3();
     // var_dump($liste['blog'][0]['titre']);
     
     if(isset($_GET['blog'])){

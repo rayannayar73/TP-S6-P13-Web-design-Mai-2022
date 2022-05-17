@@ -1,6 +1,6 @@
 <?php 
-	$url="http://localhost/Miniprojet%20-%20Web%20design/";
-?>
+ $url="https://rayannayar.alwaysdata.net/Iceberg-sauvez-la-planete/";
+ ?>
 <!DOCTYPE html>
 <html>
 	<head>
