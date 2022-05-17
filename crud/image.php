@@ -16,7 +16,7 @@
     if(in_array($fileType, $allowTypes)){
         require('../database/fonctions.php');
         $imageTemp = $_FILES['postImage']['tmp_name'];
-        $compressedImage = compressImage($imageTemp, $imageUploadPath, 9);
+        $compressedImage = compressImage($imageTemp, $imageUploadPath, 60);
         if($compressedImage){
             insertPost($titre, $description, $lieu, $dateIncident, $alt, $imagePath);
             header('Location: index.php');
