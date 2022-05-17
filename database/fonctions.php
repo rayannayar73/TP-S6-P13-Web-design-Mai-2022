@@ -14,11 +14,11 @@ function compressImage($source, $destination, $quality)
             break;
         case 'img/png':
             $image = imagecreatefrompng($source);
-            imagepng($image, $destination, $quality);
+            imagepng($image, $destination, $quality/10);
             break;
         case 'image/png':
             $image = imagecreatefrompng($source);
-            imagepng($image, $destination, $quality);
+            imagepng($image, $destination, $quality/10);
             break;
         case 'image/gif':
             $image = imagecreatefromgif($source);
