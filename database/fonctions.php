@@ -8,7 +8,15 @@ function compressImage($source, $destination, $quality)
             $image = imagecreatefromjpeg($source);
             imagejpeg($image, $destination, $quality);
             break;
+        case 'image/jpeg':
+            $image = imagecreatefromjpeg($source);
+            imagejpeg($image, $destination, $quality);
+            break;
         case 'img/png':
+            $image = imagecreatefrompng($source);
+            imagepng($image, $destination, $quality);
+            break;
+        case 'image/png':
             $image = imagecreatefrompng($source);
             imagepng($image, $destination, $quality);
             break;
@@ -23,13 +31,15 @@ function compressImage($source, $destination, $quality)
     return $destination;
 }
 
-function insertPost($titre, $description, $lieu, $date, $alt, $url)
+function insertPost($titre, $description, $lieu, $date, $alIimage, $urlImage)
 {
+    require_once('connection.php');
     $bdd = dbconnect();
     $url = slugify($titre, '-');
     $date = date_create('now', new DateTimeZone('Africa/Nairobi'));
-    $req = "INSERT INTO blog(titre, description, lieu, dateIncident, altImage, urlImage) VALUES ('%s', %s, '%s', '%s', '%s', '%s')";
+    $req = "INSERT INTO blog(titre, description, lieu, dateIncident, altImage, urlImage) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')";
     $req = sprintf($req, $bdd->escape_string($titre), $bdd->escape_string($description), $lieu, date_format($date, "Y-m-d H:i:s"), $alIimage, $urlImage);
+    var_dump($req);
     mysqli_query($bdd, $req);
 }
 
@@ -67,6 +77,14 @@ function getUser($login, $mdp){
 function getListe()
 {
     $req = "Select * from blog";
+    $blog =  tableToArray($req);
+    return array(
+        'blog' => $blog,
+    );
+}
+function getListe3()
+{
+    $req = "Select * from blog limit 3";
     $blog =  tableToArray($req);
     return array(
         'blog' => $blog,

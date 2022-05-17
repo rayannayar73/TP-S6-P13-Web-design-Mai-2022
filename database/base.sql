@@ -12,9 +12,9 @@ create table blog(
     dateAjout datetime default now()
 );
 insert into blog (titre, description,lieu, dateIncident, altImage, urlImage) values
-("Fonte de glacier","Des icebergs commencent à fondre","Antarctique",now(),"Des icebergs commencent à fondre","images/incidents/"),
-("Ours polaires en detresse","Des ours ne trouvent plus d'abris","Antarctique",now(),"Des ours sur des partiels d'iceberg","images/incidents/"),
-("pingouins polaires en detresse","Des pingouins ne trouvent plus d'abris","Antarctique",now(),"Des pingouins sur des partiels d'iceberg","images/incidents/");
+("Fonte de glacier","Des icebergs commencent à fondre","Antarctique",now(),"Des icebergs commencent à fondre","images/incidents/Capturedcran.png"),
+("Ours polaires en detresse","Des ours ne trouvent plus d'abris","Antarctique",now(),"Des ours sur des partiels d'iceberg","images/incidents/ours_polaire_2.jpg"),
+("pingouins polaires en detresse","Des pingouins ne trouvent plus d'abris","Antarctique",now(),"Des pingouins sur des partiels d'iceberg","images/incidents/Penguoin-Ice.jpg");
 
 create table admin(
     id int not null primary key auto_increment,
