@@ -32,24 +32,24 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet"> -->
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/icomoon.css">
+	<!-- <link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/icomoon.css"> -->
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/bootstrap.css">
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/flexslider.css">
 	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/owl.carousel.min.css">
+	<!-- <link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/owl.carousel.min.css"> -->
 	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/owl.theme.default.min.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="<?php echo $url ?>FrontOffice/css/style.css">
 
 	<!-- Modernizr JS -->
-	<script src="<?php echo $url ?>FrontOffice/js/modernizr-2.6.2.min.js"></script>
+	<!-- <script src="<?php echo $url ?>FrontOffice/js/modernizr-2.6.2.min.js"></script> -->
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>

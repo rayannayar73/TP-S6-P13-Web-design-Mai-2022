@@ -9,3 +9,79 @@ RewriteRule ^accueil/actualite$   index.php?pageRedirect=actualite [L]
 RewriteRule ^accueil/contact-us$   index.php?pageRedirect=contact [L]
 RewriteRule ^accueil/donnez-de-l-argent$   index.php?pageRedirect=payement [L]
 RewriteRule ^accueil/blog/(/?.*)-(/?.*)$   index.php?pageRedirect=detail-actualite&blog=$2
+
+
+# cache fichier statique
+<IfModule mod_expires.c>
+
+    ExpiresActive on
+
+    # Perhaps better to whitelist expires rules? Perhaps.
+    ExpiresDefault "access plus 1 month"
+
+    ExpiresByType text/html "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType video/ogg "access plus 1 year"
+    ExpiresByType audio/ogg "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
+
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+
+    <IfModule mod_headers.c>
+        Header append Cache-Control "public"
+    </IfModule>
+
+</IfModule>
+
+
+# activer gzip
+<IfModule mod_deflate.c>
+ # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+ <IfModule mod_setenvif.c>
+ <IfModule mod_headers.c>
+ SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)s*,?s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+ RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+ </IfModule>
+ </IfModule>
+
+ <IfModule filter_module>
+     # HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
+     FilterDeclare COMPRESS
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'text/html'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'text/css'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'text/plain'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'text/xml'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'text/x-component'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/javascript'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/json'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/xml'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/xhtml+xml'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/rss+xml'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/atom+xml'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/vnd.ms-fontobject'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'image/svg+xml'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'application/x-font-ttf'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'font/opentype'"
+     FilterProvider COMPRESS DEFLATE "%{Content_Type} = 'video/mp4'"
+     FilterChain COMPRESS
+     FilterProtocol COMPRESS DEFLATE change=yes;byteranges=no
+ </IfModule>
+
+ <IfModule !mod_filter.c>
+     # Legacy versions of Apache
+     AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+     AddOutputFilterByType DEFLATE application/javascript
+     AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+     AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+     AddOutputFilterByType DEFLATE image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
+ </IfModule>
+</IfModule>
