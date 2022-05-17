@@ -8,3 +8,4 @@ function dbconnect()
     return $connect;
 }
 ?>
+<!-- $connect = mysqli_connect('mysql-rayannayar.alwaysdata.net', '268515', 'mdpProm13', 'rayannayar_iceberg'); -->
